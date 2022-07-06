@@ -1,0 +1,8 @@
+const express = require('express');
+const router = express.Router();
+const { payment } = require('../contoller/postController')
+const { paymentValidateChainableApi, validate } = require("../validations/paymentValidation")
+
+router.post("/split-payments/compute", paymentValidateChainableApi(), validate, payment )
+
+module.exports = router
